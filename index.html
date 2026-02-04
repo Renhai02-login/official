@@ -27,10 +27,11 @@
   text-align: center;
 }
 .modal-content img{
-  width: 260px;
-  max-width: 90vw;
-  display: block;
-  margin: 0 auto;
+  width: 300px;
+  border-radius:50%;
+  border:2px solid #d4af37;
+  display:block;
+  margin:0 auto;
 }
 .modal-content button{
   position: absolute;
@@ -62,10 +63,10 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:'Lato',sans-serif;
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
+  font-family:'Lato',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
 /* HEADER */
@@ -76,7 +77,7 @@ header{
   justify-content:flex-start;
   align-items:center;
   text-align:center;
-  padding-top:80px; /* header diturunkan */
+  padding-top:80px;
 }
 h1{
   font-family:'Cinzel',serif;
@@ -89,7 +90,7 @@ h1{
   font-size:.9rem;
   color:var(--muted);
   letter-spacing:3px;
-  margin-bottom:30px; /* tombol dinaikkan */
+  margin-bottom:50px;
   text-align:center;
 }
 
@@ -101,7 +102,6 @@ h1{
   width:100%;
   max-width:420px;
   margin:auto;
-  margin-bottom:20px; /* sedikit spasi bawah */
 }
 .btn{
   padding:15px 30px;
@@ -125,33 +125,9 @@ h1{
 .btn:hover{color:#000}
 .btn:hover::before{left:0}
 
-/* Tombol Thanks To full-width */
-.btn-thanks{
-  grid-column: 1 / -1;
-  padding:15px 0;
-  border:1px solid var(--gold);
-  background:transparent;
-  color:var(--gold);
-  font-family:'Cinzel',serif;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-}
-.btn-thanks::before{
-  content:'';
-  position:absolute;
-  top:0; left:-100%;
-  width:100%; height:100%;
-  background:var(--gold);
-  transition:.4s;
-  z-index:-1;
-}
-.btn-thanks:hover{color:#000}
-.btn-thanks:hover::before{left:0}
-
 /* SECTION */
 section{
-  padding:60px 20px; /* sedikit lebih rapat */
+  padding:80px 20px;
   max-width:1000px;
   margin:auto;
   display:none;
@@ -167,7 +143,7 @@ section.active{display:block}
   font-size:2.5rem;
   border-bottom:2px solid var(--gold);
   display:inline-block;
-  margin-bottom:30px; /* dikit dirapatkan */
+  margin-bottom:40px;
 }
 
 /* CONTENT */
@@ -238,7 +214,7 @@ section.active{display:block}
 .join-card{
   background:linear-gradient(180deg,#161616,#0e0e0e);
   border:1px solid var(--border);
-  padding:40px 30px; /* dikit dirapatkan */
+  padding:50px 30px;
   text-align:center;
 }
 .join-btn{
@@ -248,6 +224,17 @@ section.active{display:block}
   background:var(--gold);
   color:#000;
   text-decoration:none;
+}
+
+/* ALLIANCES */
+.alliance-item{
+  background:#161616;
+  padding:20px;
+  margin-bottom:15px;
+  border-left:5px solid var(--gold);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
 }
 
 /* MODAL */
@@ -262,17 +249,12 @@ section.active{display:block}
   z-index:1000;
 }
 .modal-content{text-align:center}
-.modal-content img{
-  width:300px;
-  border-radius:50%;
-  border:2px solid var(--gold);
-}
 
 /* BACK */
 .back-btn{
   position:fixed;
-  bottom:20px; /* dinaikkan */
-  right:20px; /* sedikit lebih dekat */
+  bottom:30px;
+  right:30px;
   width:50px; height:50px;
   border-radius:50%;
   border:none;
@@ -284,7 +266,7 @@ section.active{display:block}
 
 footer{
   text-align:center;
-  padding:20px; /* footer naik */
+  padding:40px;
   border-top:1px solid var(--border);
   color:var(--muted);
 }
@@ -292,9 +274,11 @@ footer{
 /* ===================== THANKS TO ===================== */
 #thanks {
   text-align: center;
-  padding:60px 20px; /* dirapatkan */
-  color: #d4af37;
-  background: black;
+  padding:80px 20px;
+  color:#d4af37;
+  background:black;
+  max-width:420px;
+  margin:auto;
 }
 </style>
 </head>
@@ -310,8 +294,9 @@ footer{
 <button class="btn" onclick="showSection('visimisi')">Visi & Misi</button>
 <button class="btn" onclick="showSection('about')">Tentang</button>
 <button class="btn" onclick="showSection('join')">Pendaftaran</button>
+<button class="btn" onclick="showSection('alliances')">Aliansi</button>
 <button class="btn" onclick="showLogo()">Logo</button>
-<button class="btn-thanks" onclick="showSection('thanks')">Thanks To</button>
+<button class="btn" onclick="showSection('thanks')">Thanks To</button>
 </div>
 </header>
 
@@ -382,6 +367,13 @@ Gabung Grup
 </div>
 </section>
 
+<section id="alliances">
+<h2 class="section-title">Aliansi</h2>
+<div class="alliance-item"><span>Aliansi 1</span><span>Deskripsi</span></div>
+<div class="alliance-item"><span>Aliansi 2</span><span>Deskripsi</span></div>
+<div class="alliance-item"><span>Aliansi 3</span><span>Deskripsi</span></div>
+</section>
+
 <section id="thanks">
 <h2 class="section-title">Thanks To</h2>
 <p>
@@ -425,4 +417,4 @@ function closeLogo(){modal.style.display='none'}
 </script>
 
 </body>
-                                       </html>
+                                            </html>
