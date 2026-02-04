@@ -27,11 +27,10 @@
   text-align: center;
 }
 .modal-content img{
-  width: 300px;
-  border-radius:50%;
-  border:2px solid #d4af37;
-  display:block;
-  margin:0 auto;
+  width: 260px;
+  max-width: 90vw;
+  display: block;
+  margin: 0 auto;
 }
 .modal-content button{
   position: absolute;
@@ -63,10 +62,10 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:'Lato',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
+font-family:'Lato',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
 }
 
 /* HEADER */
@@ -90,7 +89,7 @@ h1{
   font-size:.9rem;
   color:var(--muted);
   letter-spacing:3px;
-  margin-bottom:50px;
+  margin-bottom:70px; /* dinaikkan biar tombol naik */
   text-align:center;
 }
 
@@ -181,6 +180,7 @@ section.active{display:block}
   border-left:4px solid var(--gold);
   display:flex;
   justify-content:space-between;
+  align-items:center;
   gap:20px;
 }
 .founder-item .role{
@@ -226,17 +226,6 @@ section.active{display:block}
   text-decoration:none;
 }
 
-/* ALLIANCES */
-.alliance-item{
-  background:#161616;
-  padding:20px;
-  margin-bottom:15px;
-  border-left:5px solid var(--gold);
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-}
-
 /* MODAL */
 .modal-overlay{
   position:fixed;
@@ -249,6 +238,11 @@ section.active{display:block}
   z-index:1000;
 }
 .modal-content{text-align:center}
+.modal-content img{
+  width:300px;
+  border-radius:0; /* DIUBAH JADI KOTAK */
+  border:2px solid var(--gold);
+}
 
 /* BACK */
 .back-btn{
@@ -294,8 +288,8 @@ footer{
 <button class="btn" onclick="showSection('visimisi')">Visi & Misi</button>
 <button class="btn" onclick="showSection('about')">Tentang</button>
 <button class="btn" onclick="showSection('join')">Pendaftaran</button>
-<button class="btn" onclick="showSection('alliances')">Aliansi</button>
 <button class="btn" onclick="showLogo()">Logo</button>
+<button class="btn" onclick="showSection('alliances')">Aliansi</button>
 <button class="btn" onclick="showSection('thanks')">Thanks To</button>
 </div>
 </header>
@@ -369,9 +363,21 @@ Gabung Grup
 
 <section id="alliances">
 <h2 class="section-title">Aliansi</h2>
-<div class="alliance-item"><span>Aliansi 1</span><span>Deskripsi</span></div>
-<div class="alliance-item"><span>Aliansi 2</span><span>Deskripsi</span></div>
-<div class="alliance-item"><span>Aliansi 3</span><span>Deskripsi</span></div>
+<div class="founder-item">
+  <span>Aliansi Alpha</span>
+  <span class="role">Grup Utama</span>
+  <img src="https://via.placeholder.com/60" alt="Logo Aliansi Alpha" style="border-radius:0; margin-left:15px;">
+</div>
+<div class="founder-item">
+  <span>Aliansi Beta</span>
+  <span class="role">Grup Seleksi</span>
+  <img src="https://via.placeholder.com/60" alt="Logo Aliansi Beta" style="border-radius:0; margin-left:15px;">
+</div>
+<div class="founder-item">
+  <span>Aliansi Gamma</span>
+  <span class="role">Grup Utama</span>
+  <img src="https://via.placeholder.com/60" alt="Logo Aliansi Gamma" style="border-radius:0; margin-left:15px;">
+</div>
 </section>
 
 <section id="thanks">
@@ -385,7 +391,7 @@ dan berkontribusi dalam berdirinya
 
 <div id="logoModal" class="modal-overlay">
 <div class="modal-content">
-<img src="https://files.catbox.moe/mb1v12.jpg" alt="FBA Logo">
+<img src="https://files.catbox.moe/qpvxt5.png" alt="Logo Official" style="border-radius:0;">
 <button onclick="closeLogo()">CLOSE</button>
 </div>
 </div>
@@ -417,4 +423,4 @@ function closeLogo(){modal.style.display='none'}
 </script>
 
 </body>
-                                            </html>
+  </html>
