@@ -89,7 +89,7 @@ h1{
   font-size:.9rem;
   color:var(--muted);
   letter-spacing:3px;
-  margin-bottom:70px; /* dinaikkan biar tombol naik */
+  margin-bottom:70px; 
   text-align:center;
 }
 
@@ -240,7 +240,7 @@ section.active{display:block}
 .modal-content{text-align:center}
 .modal-content img{
   width:300px;
-  border-radius:0; /* DIUBAH JADI KOTAK */
+  border-radius:0;
   border:2px solid var(--gold);
 }
 
@@ -265,14 +265,20 @@ footer{
   color:var(--muted);
 }
 
-/* ===================== THANKS TO ===================== */
-#thanks {
+/* ===================== STATUS MARGA ===================== */
+#thanksTo {
   text-align: center;
   padding:80px 20px;
   color:#d4af37;
   background:black;
-  max-width:420px;
+  width:100%;
+  max-width:calc(2*140px + 22px); /* lebar sesuai dua tombol grid atas */
   margin:auto;
+}
+#thanksTo span{
+  font-weight:600;
+  font-size:1.3rem;
+  color: var(--gold);
 }
 </style>
 </head>
@@ -290,7 +296,7 @@ footer{
 <button class="btn" onclick="showSection('join')">Pendaftaran</button>
 <button class="btn" onclick="showLogo()">Logo</button>
 <button class="btn" onclick="showSection('alliances')">Aliansi</button>
-<button class="btn" onclick="showSection('thanks')">Thanks To</button>
+<button class="btn" onclick="showSection('thanksTo')">Status Marga</button>
 </div>
 </header>
 
@@ -306,7 +312,7 @@ footer{
 </section>
 
 <section id="Owner Partai">
-<h2 class="section-title">Owner Partai</h2>
+<h2 class="section-title">Owner Partai (Coming soon)</h2>
 <div class="admin-item">
 <div class="admin-name"></div>
 <div class="admin-role">Nama owner</div>
@@ -364,29 +370,27 @@ Gabung Grup
 <section id="alliances">
 <h2 class="section-title">Aliansi</h2>
 <div class="founder-item">
-  <span>Aliansi Alpha</span>
-  <span class="role">Grup Utama</span>
-  <img src="https://via.placeholder.com/60" alt="Logo Aliansi Alpha" style="border-radius:0; margin-left:15px;">
+  <span>LOE</span>
+  <span class="role">Aliansi 1</span>
+  <img src="https://files.catbox.moe/9lls92.jpg" alt="Logo Aliansi Alpha" style="border-radius:0; margin-left:15px;">
 </div>
 <div class="founder-item">
-  <span>Aliansi Beta</span>
-  <span class="role">Grup Seleksi</span>
+  <span>IHCI</span>
+  <span class="role">Aliansi 2</span>
   <img src="https://via.placeholder.com/60" alt="Logo Aliansi Beta" style="border-radius:0; margin-left:15px;">
 </div>
 <div class="founder-item">
-  <span>Aliansi Gamma</span>
-  <span class="role">Grup Utama</span>
-  <img src="https://via.placeholder.com/60" alt="Logo Aliansi Gamma" style="border-radius:0; margin-left:15px;">
+  <span>HUMI</span>
+  <span class="role">Aliansi 3</span>
+  <img src="https://files.catbox.moe/d022hd.jpg" alt="Logo Aliansi Gamma" style="border-radius:0; margin-left:15px;">
 </div>
+
 </section>
 
-<section id="thanks">
-<h2 class="section-title">Thanks To</h2>
-<p>
-Terima kasih kepada seluruh pihak yang telah mendukung
-dan berkontribusi dalam berdirinya
-<strong>Firmament of Beyond Age</strong>.
-</p>
+<!-- STATUS MARGA -->
+<section id="thanksTo">
+<h2 class="section-title">Status Marga</h2>
+<span>Netral, Non blok</span>
 </section>
 
 <div id="logoModal" class="modal-overlay">
@@ -423,4 +427,4 @@ function closeLogo(){modal.style.display='none'}
 </script>
 
 </body>
-  </html>
+</html>
