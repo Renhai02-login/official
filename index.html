@@ -755,5 +755,60 @@
   <footer>© 2026 FBA Community — Firmament of Beyond Age</footer>
 
   <script>
-    const home = document.getElementById('home');
-    const sections = docum
+  const home = document.getElementById('home');
+  const sections = document.querySelectorAll('section');
+  const backBtn = document.getElementById('backBtn');
+  const logoModal = document.getElementById('logoModal');
+
+  function showSection(id) {
+    // Sembunyikan home
+    home.style.display = 'none';
+
+    // Sembunyikan semua section
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+
+    // Tampilkan section yang dipilih
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+    }
+
+    // Tampilkan tombol back
+    backBtn.style.display = 'block';
+
+    // Scroll ke atas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goHome() {
+    // Tampilkan home
+    home.style.display = 'flex';
+
+    // Sembunyikan semua section
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+
+    // Sembunyikan tombol back
+    backBtn.style.display = 'none';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showLogo() {
+    logoModal.style.display = 'flex';
+  }
+
+  function closeLogo() {
+    logoModal.style.display = 'none';
+  }
+
+  // Tutup modal kalau klik di luar gambar
+  logoModal.addEventListener('click', function(e) {
+    if (e.target === logoModal) {
+      closeLogo();
+    }
+  });
+</script>
