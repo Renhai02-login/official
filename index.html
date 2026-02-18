@@ -50,7 +50,7 @@
     }
 
     /* ===== TYPOGRAPHY ===== */
-    h1, h2, h3, .section-title, .btn, .founder-item span:first-child {
+    h1, h2, h3, .section-title, .btn, .founder-item span:first-child, .party-owner {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
     }
@@ -246,8 +246,8 @@
       font-size: 1.2rem;
     }
 
-    /* ===== FOUNDER & ADMIN ITEMS ===== */
-    .founder-item, .admin-item {
+    /* ===== FOUNDER ITEMS ===== */
+    .founder-item {
       background: var(--bg-card);
       border-left: 4px solid var(--gold-primary);
       padding: 1.5rem 2rem;
@@ -259,7 +259,7 @@
       border-radius: 0 8px 8px 0;
     }
 
-    .founder-item:hover, .admin-item:hover {
+    .founder-item:hover {
       transform: translateX(10px);
       box-shadow: -5px 5px 20px rgba(212, 175, 55, 0.2);
     }
@@ -275,28 +275,76 @@
       font-size: 1.1rem;
     }
 
-    .admin-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
+    /* ===== PARTY ITEMS (VERSION SIMPLE) ===== */
+    .party-item {
+      background: var(--bg-card);
+      border-left: 4px solid var(--gold-primary);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      border-radius: 0 8px 8px 0;
+      position: relative;
+      overflow: hidden;
     }
 
-    .admin-name {
+    .party-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05));
+      transform: skewX(-15deg) translateX(100px);
+      transition: transform 0.5s ease;
+    }
+
+    .party-item:hover {
+      transform: translateX(10px);
+      box-shadow: -5px 5px 20px rgba(212, 175, 55, 0.2);
+      border-left-width: 6px;
+    }
+
+    .party-item:hover::before {
+      transform: skewX(-15deg) translateX(-50px);
+    }
+
+    .party-owner {
       font-size: 1.3rem;
-      color: var(--gold-primary);
       font-weight: 600;
+      color: var(--gold-primary);
     }
 
-    .admin-role {
+    .party-name {
       color: var(--text-secondary);
+      font-size: 1.1rem;
+      text-align: right;
+      font-weight: 500;
     }
 
-    .admin-party {
+    .party-note {
+      font-size: 0.85rem;
       color: var(--gold-soft);
-      font-size: 0.95rem;
+      font-style: italic;
       margin-top: 0.3rem;
-      padding-left: 1rem;
-      border-left: 2px solid var(--gold-primary);
+      width: 100%;
+      text-align: right;
+      opacity: 0.8;
+      border-top: 1px dashed rgba(212, 175, 55, 0.3);
+      padding-top: 0.3rem;
+    }
+
+    /* Untuk party-item yang punya note (seperti Serikat Frandom) */
+    .party-item:has(.party-note) {
+      flex-wrap: wrap;
+    }
+
+    .party-item:has(.party-note) .party-owner,
+    .party-item:has(.party-note) .party-name {
+      flex: 1;
     }
 
     /* ===== JOIN SECTION ===== */
@@ -517,6 +565,9 @@
       
       .section-title { font-size: 2.5rem; }
       .founder-item { flex-direction: column; text-align: center; }
+      .party-item { flex-direction: column; text-align: center; gap: 0.5rem; }
+      .party-name { text-align: center; }
+      .party-note { text-align: center; }
     }
 
     @media (max-width: 480px) {
@@ -552,70 +603,70 @@
     <div class="founder-item"><span>Kazuma</span><span class="role">Supervisory Council</span></div>
   </section>
 
- <section id="Partai">
-  <h2 class="section-title">Partai</h2>
-  
-  <div class="party-item">
-    <div class="party-owner">Kazuma</div>
-    <div class="party-name">KNPI</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Dhanis</div>
-    <div class="party-name">PND</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Dama</div>
-    <div class="party-name">Serikat Frandom</div>
-    <div class="party-note">Dibawah Naungan IHCI dan FBA</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Mira</div>
-    <div class="party-name">PGFP</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">I'm Napoleon</div>
-    <div class="party-name">PKP</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Kinks</div>
-    <div class="party-name">Femboy Hunters</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Suryya</div>
-    <div class="party-name">Partai Transformasi Nasional (PTN)</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Suryya</div>
-    <div class="party-name">Partai Survivor</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Faris ST</div>
-    <div class="party-name">PKENAS</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">I'm Joseph Stalin</div>
-    <div class="party-name">PPK</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Okta</div>
-    <div class="party-name">Ngawi Sejati</div>
-  </div>
-  
-  <div class="party-item">
-    <div class="party-owner">Kinks</div>
-    <div class="party-name">Kesultanan FBA</div>
-  </div>
-</section>
+  <section id="Partai">
+    <h2 class="section-title">Partai</h2>
+    
+    <div class="party-item">
+      <div class="party-owner">Kazuma</div>
+      <div class="party-name">KNPI</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Dhanis</div>
+      <div class="party-name">PND</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Dama</div>
+      <div class="party-name">Serikat Frandom</div>
+      <div class="party-note">Dibawah Naungan IHCI dan FBA</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Mira</div>
+      <div class="party-name">PGFP</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">I'm Napoleon</div>
+      <div class="party-name">PKP</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Kinks</div>
+      <div class="party-name">Femboy Hunters</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Suryya</div>
+      <div class="party-name">Partai Transformasi Nasional (PTN)</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Suryya</div>
+      <div class="party-name">Partai Survivor</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Faris ST</div>
+      <div class="party-name">PKENAS</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">I'm Joseph Stalin</div>
+      <div class="party-name">PPK</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Okta</div>
+      <div class="party-name">Ngawi Sejati</div>
+    </div>
+    
+    <div class="party-item">
+      <div class="party-owner">Kinks</div>
+      <div class="party-name">Kesultanan FBA</div>
+    </div>
+  </section>
 
   <section id="visimisi">
     <h2 class="section-title">Visi & Misi</h2>
@@ -681,7 +732,7 @@
       <span class="role">Aliansi 4</span>
       <img src="https://files.catbox.moe/a8j75t.jpg" alt="Logo HSCWHF">
     </div>
-<div class="founder-item">
+    <div class="founder-item">
       <span>F`3BxYTMCI</span>
       <span class="role">Aliansi 5</span>
       <img src="https://files.catbox.moe/yspwub.jpg" alt="Logo F`3BxYTMCI">
@@ -705,25 +756,4 @@
 
   <script>
     const home = document.getElementById('home');
-    const sections = document.querySelectorAll('section');
-    const backBtn = document.getElementById('backBtn');
-    const modal = document.getElementById('logoModal');
-
-    function showSection(id) {
-      home.style.display = 'none';
-      backBtn.style.display = 'block';
-      sections.forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function goHome() {
-      sections.forEach(s => s.classList.remove('active'));
-      home.style.display = 'flex';
-      backBtn.style.display = 'none';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function showLogo() {
-      modal.style.display = 'flex';
-    }
+    const sections = docum
